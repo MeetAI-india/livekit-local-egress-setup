@@ -1,0 +1,30 @@
+services:
+  livekit:
+    image: livekit/livekit-server
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+    environment:
+      LIVEKIT_KEYS: "devkey: secret"
+    command: >
+      --bind 0.0.0.0 --redis-host redis:6379
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7
+    ports:
+      - "6380:6379"
+
+  egress:
+    image: livekit/egress
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      EGRESS_CONFIG_FILE: /config.yaml
+    volumes:
+      - ./config.yaml:/config.yaml
+      - ./recordings:/out
+    depends_on:
+      - livekit
+      - redis

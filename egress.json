@@ -1,0 +1,8 @@
+{
+    "room_name": "test-room",
+    "file_outputs": [
+        {
+            "filepath": "/out/test.mp4"
+        }
+    ]
+}
