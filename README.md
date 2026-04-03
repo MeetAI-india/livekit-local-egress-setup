@@ -20,7 +20,7 @@
 ### 1. Clone Repository
 
 ```bash
-https://github.com/MeetAI-india/livekit-local-egress-setup.git
+git clone https://github.com/MeetAI-india/livekit-local-egress-setup.git
 cd livekit-local-egress-setup
 ```
 
